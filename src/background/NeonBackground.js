@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { config, palette } from './config.js';
 import { Sky } from './objects/Sky.js';
-import { Sun } from './objects/Sun.js';
 import { Grid } from './objects/Grid.js';
 import { Mountains } from './objects/Mountains.js';
 import { Illimani } from './objects/Illimani.js';
@@ -61,7 +60,7 @@ export class NeonBackground {
       opacity: config.skyGrid.opacity,
       cellSize: config.skyGrid.cellSize,
     });
-    this.#objects = [new Sky(), new Sun(), skyGrid, new Grid(), new Mountains(), new Illimani()];
+    this.#objects = [new Sky(), skyGrid, new Grid(), new Mountains(), new Illimani()];
     for (const obj of this.#objects) this.#scene.add(obj.object3d);
   }
 
