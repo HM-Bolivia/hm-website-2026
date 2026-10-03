@@ -222,3 +222,9 @@ h2 {
     scroll-behavior: auto;
   }
 }
+
+/* Temporary: hide all page content and show only the background.
+   Remove the "bg-only" class from <body> in index.html to bring the content back. */
+.bg-only > :not(#bg) {
+  display: none;
+}
