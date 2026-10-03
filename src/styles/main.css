@@ -213,6 +213,10 @@ h2 {
   font-size: 0.85rem;
 }
 
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

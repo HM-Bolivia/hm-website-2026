@@ -10,8 +10,6 @@ export const palette = {
   skyGridLine: 0xb04dff,
   mountainFill: 0x0a0418,
   mountainLine: 0x00f0ff,
-  snowLine: 0xd6ecff,
-  snowFill: 0x221c44,
   sunTop: 0xffd23f,
   sunBottom: 0xff1f7a,
 };
@@ -45,7 +43,7 @@ export const config = {
 
   sun: {
     radius: 130,
-    position: { x: 0, y: 125, z: -700 },
+    position: { x: 0, y: 170, z: -700 },
     stripes: 14,
     stripeSpeed: 0.12,
   },
@@ -59,14 +57,12 @@ export const config = {
     maxHeight: 38,
   },
 
+  // Neon artwork from src/assets/illimani.png (regenerate with `npm run assets:illimani`).
   illimani: {
-    position: { x: 20, z: -600 },
-    width: 1100,
-    depth: 220,
-    height: 115,
-    segmentsX: 80,
-    segmentsZ: 14,
-    snowLine: 0.55, // fraction of the peak height where snow starts
+    position: { x: 0, z: -650 },
+    width: 750, // scene units; height follows the image's aspect ratio
+    sink: 0.12, // fraction of the image height pushed below the floor
+    brightness: 0.45, // < 1 tames the bloom on the hot pinks
   },
 
   bloom: {

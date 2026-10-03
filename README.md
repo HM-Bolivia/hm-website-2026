@@ -9,6 +9,7 @@ npm install
 npm run dev      # local dev server with hot reload
 npm run build    # production build into dist/
 npm run preview  # serve the production build
+npm run assets:illimani  # regenerate the transparent Illimani PNG (needs ImageMagick 7)
 ```
 
 ## Project structure
@@ -26,7 +27,11 @@ src/
       Sun.js                striped retro sun (shader)
       Grid.js               infinite scrolling neon grid (shader), used for floor and sky
       Mountains.js          wireframe mountains, two leapfrogging tiles
-      Illimani.js           Illimani massif fixed on the horizon, in front of the sun
+      Illimani.js           neon Illimani artwork on the horizon, in front of the sun
+  assets/illimani.png       transparent artwork used in the scene (generated)
+assets-src/illimani.jpeg    original artwork on black
+scripts/
+  prepare-illimani-image.sh turns the original into the transparent PNG
     effects/postprocessing.js   bloom glow
     controls/MouseParallax.js   camera sway that follows the pointer
 ```
@@ -34,6 +39,12 @@ src/
 ### Tweaking the look
 
 Most visual changes only need `src/background/config.js`: colors (`palette`), scroll `speed`, `bloom` strength, sun size and position, mountain height, and so on.
+
+### Illimani
+
+The mountain is a picture: `assets-src/illimani.jpeg` (neon art on black) is converted by `scripts/prepare-illimani-image.sh` into `src/assets/illimani.png`. The black background becomes transparent, the glow keeps its color, and the mountain body stays opaque so it hides the sun. To swap the artwork, replace the source file and run `npm run assets:illimani`.
+
+Size, position and brightness are in `config.illimani`.
 
 ### Adding something to the world
 
