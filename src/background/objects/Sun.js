@@ -4,7 +4,7 @@ import { config, palette } from '../config.js';
 /** The classic synthwave sun: vertical gradient with scrolling horizontal cutouts. */
 export class Sun {
   constructor() {
-    const { radius, position, stripes } = config.sun;
+    const { radius, position, stripes, intensity } = config.sun;
     const geometry = new THREE.PlaneGeometry(radius * 2, radius * 2);
 
     this.material = new THREE.ShaderMaterial({
@@ -15,6 +15,7 @@ export class Sun {
         uTop: { value: new THREE.Color(palette.sunTop) },
         uBottom: { value: new THREE.Color(palette.sunBottom) },
         uStripes: { value: stripes },
+        uIntensity: { value: intensity },
       },
       vertexShader: /* glsl */ `
         varying vec2 vUv;
@@ -28,6 +29,7 @@ export class Sun {
         uniform vec3 uTop;
         uniform vec3 uBottom;
         uniform float uStripes;
+        uniform float uIntensity;
         varying vec2 vUv;
 
         void main() {
@@ -44,8 +46,8 @@ export class Sun {
           float alpha = disc * (1.0 - cut);
           if (alpha < 0.01) discard;
 
-          vec3 color = mix(uBottom, uTop, smoothstep(0.35, 1.0, vUv.y));
-          gl_FragColor = vec4(color, alpha);
+          vec3 color = mix(uBottom, uTop, smoothstep(0.45, 1.0, vUv.y));
+          gl_FragColor = vec4(color * uIntensity, alpha);
         }
       `,
     });

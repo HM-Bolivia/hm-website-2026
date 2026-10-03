@@ -10,8 +10,8 @@ export const palette = {
   skyGridLine: 0xb04dff,
   mountainFill: 0x0a0418,
   mountainLine: 0x00f0ff,
-  sunTop: 0xffd23f,
-  sunBottom: 0xff1f7a,
+  sunTop: 0xffd000,
+  sunBottom: 0xff4000,
 };
 
 export const config = {
@@ -46,6 +46,7 @@ export const config = {
     position: { x: 0, y: 170, z: -700 },
     stripes: 14,
     stripeSpeed: 0.12,
+    intensity: 0.75, // < 1 keeps the bloom from washing the colors out to white
   },
 
   mountains: {
