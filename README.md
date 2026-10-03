@@ -23,10 +23,10 @@ src/
     NeonBackground.js       renderer, camera, scene, animation loop, resize
     objects/                one file per thing in the world
       Sky.js                gradient sky dome
-      Stars.js              starfield
       Sun.js                striped retro sun (shader)
-      Grid.js               infinite scrolling neon floor (shader)
+      Grid.js               infinite scrolling neon grid (shader), used for floor and sky
       Mountains.js          wireframe mountains, two leapfrogging tiles
+      Illimani.js           Illimani massif fixed on the horizon, in front of the sun
     effects/postprocessing.js   bloom glow
     controls/MouseParallax.js   camera sway that follows the pointer
 ```

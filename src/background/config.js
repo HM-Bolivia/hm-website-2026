@@ -7,16 +7,18 @@ export const palette = {
   fog: 0x1a0626,
   floor: 0x07020f,
   gridLine: 0xff2bd6,
+  skyGridLine: 0xb04dff,
   mountainFill: 0x0a0418,
   mountainLine: 0x00f0ff,
+  snowLine: 0xd6ecff,
+  snowFill: 0x221c44,
   sunTop: 0xffd23f,
   sunBottom: 0xff1f7a,
-  stars: 0xffffff,
 };
 
 export const config = {
   // Units per second the world scrolls toward the camera.
-  speed: 18,
+  speed: 7,
 
   camera: {
     fov: 60,
@@ -30,14 +32,20 @@ export const config = {
 
   grid: {
     size: 2000,
-    cellSize: 6,
-    lineWidth: 1.2,
+    cellSize: 3,
+    lineWidth: 1.1,
     fadeDistance: 450,
+  },
+
+  skyGrid: {
+    height: 60,
+    cellSize: 3,
+    opacity: 0.45,
   },
 
   sun: {
     radius: 130,
-    position: { x: 0, y: 85, z: -700 },
+    position: { x: 0, y: 125, z: -700 },
     stripes: 14,
     stripeSpeed: 0.12,
   },
@@ -51,10 +59,14 @@ export const config = {
     maxHeight: 38,
   },
 
-  stars: {
-    count: 1500,
-    radius: 900,
-    size: 1.6,
+  illimani: {
+    position: { x: 20, z: -600 },
+    width: 1100,
+    depth: 220,
+    height: 115,
+    segmentsX: 80,
+    segmentsZ: 14,
+    snowLine: 0.55, // fraction of the peak height where snow starts
   },
 
   bloom: {

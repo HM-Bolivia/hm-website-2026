@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import { config, palette } from './config.js';
 import { Sky } from './objects/Sky.js';
-import { Stars } from './objects/Stars.js';
 import { Sun } from './objects/Sun.js';
 import { Grid } from './objects/Grid.js';
 import { Mountains } from './objects/Mountains.js';
+import { Illimani } from './objects/Illimani.js';
 import { createComposer } from './effects/postprocessing.js';
 import { MouseParallax } from './controls/MouseParallax.js';
 
@@ -54,7 +54,14 @@ export class NeonBackground {
   }
 
   #createObjects() {
-    this.#objects = [new Sky(), new Stars(), new Sun(), new Grid(), new Mountains()];
+    const skyGrid = new Grid({
+      ceiling: true,
+      y: config.skyGrid.height,
+      color: palette.skyGridLine,
+      opacity: config.skyGrid.opacity,
+      cellSize: config.skyGrid.cellSize,
+    });
+    this.#objects = [new Sky(), new Sun(), skyGrid, new Grid(), new Mountains(), new Illimani()];
     for (const obj of this.#objects) this.#scene.add(obj.object3d);
   }
 

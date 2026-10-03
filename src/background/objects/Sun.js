@@ -44,7 +44,7 @@ export class Sun {
           float alpha = disc * (1.0 - cut);
           if (alpha < 0.01) discard;
 
-          vec3 color = mix(uBottom, uTop, smoothstep(0.2, 1.0, vUv.y));
+          vec3 color = mix(uBottom, uTop, smoothstep(0.35, 1.0, vUv.y));
           gl_FragColor = vec4(color, alpha);
         }
       `,
