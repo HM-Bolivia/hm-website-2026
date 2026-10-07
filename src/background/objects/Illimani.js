@@ -3,8 +3,9 @@ import { config } from '../config.js';
 import illimaniUrl from '../../assets/illimani.png';
 
 /**
- * Neon Illimani artwork standing on the horizon in front of the sun.
+ * Neon Illimani artwork standing on the horizon.
  * The PNG is generated from assets-src/illimani.jpeg by scripts/prepare-illimani-image.sh.
+ * `ready` resolves once the image has loaded (or failed), so the intro can wait for it.
  */
 export class Illimani {
   constructor() {
@@ -17,14 +18,23 @@ export class Illimani {
       fog: false,
     });
 
-    this.texture = new THREE.TextureLoader().load(illimaniUrl, (texture) => {
-      // Size the plane from the image's aspect ratio once it has loaded.
-      const height = width * (texture.image.height / texture.image.width);
-      this.object3d.scale.set(width, height, 1);
-      // Push the bottom edge of the artwork slightly below the floor so it sits on the horizon.
-      this.object3d.position.y = height / 2 - height * sink;
-      this.object3d.visible = true;
-    });
+    let markReady;
+    this.ready = new Promise((resolve) => (markReady = resolve));
+
+    this.texture = new THREE.TextureLoader().load(
+      illimaniUrl,
+      (texture) => {
+        // Size the plane from the image's aspect ratio once it has loaded.
+        const height = width * (texture.image.height / texture.image.width);
+        this.object3d.scale.set(width, height, 1);
+        // Push the bottom edge of the artwork slightly below the floor so it sits on the horizon.
+        this.object3d.position.y = height / 2 - height * sink;
+        this.object3d.visible = true;
+        markReady();
+      },
+      undefined,
+      markReady,
+    );
     this.texture.colorSpace = THREE.SRGBColorSpace;
     this.material.map = this.texture;
 

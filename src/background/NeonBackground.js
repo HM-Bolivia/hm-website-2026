@@ -14,6 +14,7 @@ import { MouseParallax } from './controls/MouseParallax.js';
  *   - `object3d`              the THREE.Object3D added to the scene
  *   - `update(delta, elapsed, speed)` optional, called every frame
  *   - `dispose()`             optional, frees GPU resources
+ *   - `ready`                 optional promise, resolves when async assets have loaded
  * To add something new to the world, create a class with that shape and
  * append it in `#createObjects`.
  */
@@ -50,6 +51,11 @@ export class NeonBackground {
 
     window.addEventListener('resize', this.#handleResize);
     this.#onResize();
+  }
+
+  /** Resolves when every object's async assets (e.g. textures) have loaded. */
+  get ready() {
+    return Promise.all(this.#objects.map((obj) => obj.ready));
   }
 
   #createObjects() {

@@ -1,11 +1,13 @@
 import './styles/main.css';
 import { NeonBackground } from './background/NeonBackground.js';
+import { initIntro } from './intro.js';
 
 const canvas = document.querySelector('#bg');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+let background;
 try {
-  const background = new NeonBackground(canvas, { reducedMotion });
+  background = new NeonBackground(canvas, { reducedMotion });
   background.start();
 
   if (import.meta.hot) import.meta.hot.dispose(() => background.dispose());
@@ -15,4 +17,5 @@ try {
   canvas.remove();
 }
 
-document.querySelector('#year').textContent = new Date().getFullYear();
+// Show Illimani on its own first, then slide the content in (no background → no wait).
+initIntro(background?.ready);

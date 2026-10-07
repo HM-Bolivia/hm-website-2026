@@ -1,65 +1,192 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hackmeeting 2026</title>
-    <meta name="description" content="Placeholder description for Hackmeeting 2026." />
+    <title>Hackmeeting 0x7ea (2026)</title>
+    <meta
+      name="description"
+      content="Hackmeeting 0x7ea (2026): encuentro de hacking, software libre, seguridad y cultura libre. Convocatoria de charlas abierta."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // Runs before first paint so the content starts off-screen for the intro (see src/intro.js).
+      if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('intro');
+        history.scrollRestoration = 'manual';
+        // Fail-safe: never leave the content hidden if the scripts fail to load.
+        setTimeout(() => document.documentElement.classList.add('intro-play'), 6000);
+      }
+    </script>
   </head>
-  <body class="bg-only">
+  <body>
     <canvas id="bg" aria-hidden="true"></canvas>
 
-    <header class="site-header">
-      <a class="logo" href="#top">HM<span>26</span></a>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <!-- Placeholders in [BRACKETS] are pending real event data. -->
+    <div class="page">
+      <header class="site-header">
+        <a class="logo" href="#inicio">HM<span>0x7ea</span></a>
+        <nav aria-label="Secciones">
+          <ul>
+            <li><a href="#convocatoria">Convocatoria</a></li>
+            <li><a href="#fecha">Fecha</a></li>
+            <li><a href="#lugar">Lugar</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+      </header>
 
-    <main id="top">
-      <section class="hero">
-        <p class="eyebrow">Placeholder · Date · Location</p>
-        <h1 class="neon">Hackmeeting<br />2026</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <a class="btn" href="#about">Call to action</a>
-      </section>
+      <main>
+        <section id="inicio" class="hero">
+          <div class="hero-inner">
+            <p class="eyebrow">[FECHAS] · [CIUDAD]</p>
+            <h1 class="neon">Hackmeeting<br /><span class="hex">0x7ea</span></h1>
+            <p class="year">(2026)</p>
+            <p class="lead">
+              Encuentro de hacking, software libre, seguridad informática y cultura libre. Abierto, gratuito y
+              autogestionado.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#convocatoria">Enviar propuesta</a>
+              <a class="btn btn-secondary" href="#fecha">Más información</a>
+            </div>
+          </div>
+        </section>
 
-      <section id="about" class="panel">
-        <h2>About</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-        </p>
-      </section>
+        <section id="convocatoria" class="panel">
+          <h2>Convocatoria de charlas</h2>
+          <p>
+            ¿Tienes algo que compartir? Buscamos charlas y talleres de personas de todos los niveles: no hace falta
+            ser experta o experto, solo tener ganas de contar lo que hiciste, rompiste o aprendiste.
+          </p>
 
-      <section id="schedule" class="panel">
-        <h2>Schedule</h2>
-        <ul class="cards">
-          <li class="card"><h3>Day 1</h3><p>Placeholder item</p></li>
-          <li class="card"><h3>Day 2</h3><p>Placeholder item</p></li>
-          <li class="card"><h3>Day 3</h3><p>Placeholder item</p></li>
-        </ul>
-      </section>
+          <h3>Temas de interés</h3>
+          <ul class="tags">
+            <li>Seguridad informática</li>
+            <li>Software libre</li>
+            <li>Privacidad y vigilancia</li>
+            <li>Criptografía</li>
+            <li>Hardware y electrónica</li>
+            <li>Redes comunitarias</li>
+            <li>Ingeniería inversa</li>
+            <li>Cultura y ética hacker</li>
+          </ul>
 
-      <section id="contact" class="panel">
-        <h2>Contact</h2>
-        <p>Placeholder contact info · <a href="mailto:hello@example.com">hello@example.com</a></p>
-      </section>
-    </main>
+          <h3>Formatos</h3>
+          <ul class="cards">
+            <li class="card">
+              <h4>Charla</h4>
+              <p>[40] minutos, incluyendo preguntas.</p>
+            </li>
+            <li class="card">
+              <h4>Charla relámpago</h4>
+              <p>[10] minutos para una idea, un proyecto o una demo.</p>
+            </li>
+            <li class="card">
+              <h4>Taller</h4>
+              <p>[90–120] minutos, práctico y con las manos en el teclado.</p>
+            </li>
+          </ul>
 
-    <footer class="site-footer">
-      <p>© <span id="year"></span> Placeholder</p>
-    </footer>
+          <h3>Fechas importantes</h3>
+          <dl class="dates">
+            <div><dt>Apertura</dt><dd>[FECHA]</dd></div>
+            <div><dt>Cierre de la convocatoria</dt><dd>[FECHA]</dd></div>
+            <div><dt>Notificación de resultados</dt><dd>[FECHA]</dd></div>
+          </dl>
+
+          <!-- TODO: replace with the real submission form URL. -->
+          <a class="btn" href="https://example.com/propuestas" target="_blank" rel="noopener">Enviar propuesta</a>
+        </section>
+
+        <section id="fecha" class="panel">
+          <h2>Fecha</h2>
+          <p class="highlight">Del [DÍA] al [DÍA] de [MES] de 2026</p>
+          <ul class="cards">
+            <li class="card">
+              <h4>Día 1 · [FECHA]</h4>
+              <p>Apertura, charlas y talleres.</p>
+            </li>
+            <li class="card">
+              <h4>Día 2 · [FECHA]</h4>
+              <p>Charlas, talleres y actividades.</p>
+            </li>
+            <li class="card">
+              <h4>Día 3 · [FECHA]</h4>
+              <p>Charlas relámpago y cierre.</p>
+            </li>
+          </ul>
+          <p class="note">El programa completo se publicará después del cierre de la convocatoria.</p>
+        </section>
+
+        <section id="lugar" class="panel">
+          <h2>Lugar</h2>
+          <p class="highlight">[NOMBRE DEL LUGAR]</p>
+          <address>
+            [DIRECCIÓN]<br />
+            [CIUDAD]
+          </address>
+          <p><strong>Cómo llegar:</strong> [INDICACIONES DE TRANSPORTE].</p>
+          <p><strong>Accesibilidad:</strong> [INFORMACIÓN DE ACCESIBILIDAD DEL LUGAR].</p>
+          <!-- TODO: replace with the real map link. -->
+          <a class="btn btn-secondary" href="https://www.openstreetmap.org/" target="_blank" rel="noopener"
+            >Ver en el mapa</a
+          >
+        </section>
+
+        <section id="faq" class="panel">
+          <h2>Preguntas frecuentes</h2>
+          <div class="faq">
+            <details>
+              <summary>¿Cuánto cuesta asistir?</summary>
+              <p>La entrada es libre y gratuita. [CONFIRMAR]</p>
+            </details>
+            <details>
+              <summary>¿Necesito ser experta o experto para participar?</summary>
+              <p>
+                Para nada. El hackmeeting es para cualquier persona con curiosidad, sin importar su nivel. Muchas
+                charlas y talleres están pensados para quienes recién empiezan.
+              </p>
+            </details>
+            <details>
+              <summary>¿Cómo propongo una charla o un taller?</summary>
+              <p>
+                Revisa la <a href="#convocatoria">convocatoria</a> y envía tu propuesta antes del [FECHA DE CIERRE].
+              </p>
+            </details>
+            <details>
+              <summary>¿Hay un código de conducta?</summary>
+              <p>
+                Sí. Queremos un espacio seguro y respetuoso para todas las personas. Puedes leerlo aquí: [ENLACE AL
+                CÓDIGO DE CONDUCTA].
+              </p>
+            </details>
+            <details>
+              <summary>¿Qué debo llevar?</summary>
+              <p>Tu computadora si vas a un taller, cargador, y muchas ganas de aprender y compartir.</p>
+            </details>
+            <details>
+              <summary>¿Habrá transmisión en vivo?</summary>
+              <p>[POR CONFIRMAR]</p>
+            </details>
+            <details>
+              <summary>¿Cómo puedo colaborar como voluntaria o voluntario?</summary>
+              <p>Escríbenos a [CORREO] y te contamos cómo sumarte a la organización.</p>
+            </details>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Hackmeeting 0x7ea · 2026</p>
+        <p>Contacto: [CORREO]</p>
+      </footer>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
