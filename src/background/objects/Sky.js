@@ -34,6 +34,12 @@ export class Sky {
     this.object3d.renderOrder = -2;
   }
 
+  setPalette(colors) {
+    const { uniforms } = this.object3d.material;
+    uniforms.uTop.value.set(colors.skyTop);
+    uniforms.uHorizon.value.set(colors.skyHorizon);
+  }
+
   dispose() {
     this.object3d.geometry.dispose();
     this.object3d.material.dispose();

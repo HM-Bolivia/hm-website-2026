@@ -19,3 +19,11 @@ try {
 
 // Show Illimani on its own first, then slide the content in (no background → no wait).
 initIntro(background?.ready);
+
+// Palette editor for choosing colors: only loaded with ?palette (or a shared ?p=… link).
+const params = new URLSearchParams(location.search);
+if (params.has('palette') || params.has('p')) {
+  import('./palette-playground/PalettePlayground.js').then(({ mountPalettePlayground }) =>
+    mountPalettePlayground(background),
+  );
+}

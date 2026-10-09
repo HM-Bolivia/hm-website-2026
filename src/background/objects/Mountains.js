@@ -68,6 +68,11 @@ export class Mountains {
     this.geometry.computeBoundingSphere();
   }
 
+  setPalette(colors) {
+    this.fillMaterial.color.set(colors.mountainFill);
+    this.lineMaterial.color.set(colors.mountainLine);
+  }
+
   update(delta, elapsed, speed) {
     const { length } = config.mountains;
     const cameraZ = config.camera.position.z;

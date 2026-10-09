@@ -1,0 +1,26 @@
+/**
+ * Editable palette entries. Each token can drive a CSS custom property on the
+ * page (`css`), a color in the 3D scene (`scene`, a key of `palette` in
+ * src/background/config.js), or both, so one swatch recolors page and scene together.
+ *
+ * Default values are read at runtime from the CSS and the scene config,
+ * so they never drift from the real site.
+ */
+export const TOKENS = [
+  { id: 'pink', label: 'Rosa neón', hint: 'Grilla del piso, títulos, bordes', group: 'Acentos', css: '--pink', scene: 'gridLine' },
+  { id: 'cyan', label: 'Cian neón', hint: 'Montañas, botones, enlaces', group: 'Acentos', css: '--cyan', scene: 'mountainLine' },
+  { id: 'yellow', label: 'Amarillo', hint: 'Títulos de sección, año', group: 'Acentos', css: '--yellow' },
+  { id: 'violet', label: 'Violeta', hint: 'Grilla del cielo', group: 'Acentos', scene: 'skyGridLine' },
+
+  { id: 'night', label: 'Noche', hint: 'Fondo, parte alta del cielo', group: 'Fondos', css: '--bg-deep', scene: 'skyTop' },
+  { id: 'horizon', label: 'Horizonte', hint: 'Brillo del cielo en el horizonte', group: 'Fondos', scene: 'skyHorizon' },
+  { id: 'fog', label: 'Neblina', hint: 'Bruma a lo lejos', group: 'Fondos', scene: 'fog' },
+  { id: 'floor', label: 'Piso', hint: 'Entre las líneas de la grilla', group: 'Fondos', scene: 'floor' },
+  { id: 'mountainFill', label: 'Montañas', hint: 'Relleno de las montañas', group: 'Fondos', scene: 'mountainFill' },
+  { id: 'panel', label: 'Paneles', hint: 'Fondo de las secciones', group: 'Fondos', css: '--panel-base' },
+
+  { id: 'text', label: 'Texto', hint: 'Texto principal', group: 'Texto', css: '--text' },
+  { id: 'muted', label: 'Texto secundario', hint: 'Menú, notas, respuestas', group: 'Texto', css: '--muted' },
+];
+
+export const GLOW = { min: 0, max: 2, step: 0.05 };

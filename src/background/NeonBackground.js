@@ -15,6 +15,7 @@ import { MouseParallax } from './controls/MouseParallax.js';
  *   - `update(delta, elapsed, speed)` optional, called every frame
  *   - `dispose()`             optional, frees GPU resources
  *   - `ready`                 optional promise, resolves when async assets have loaded
+ *   - `setPalette(palette)`   optional, re-reads its colors after `setPalette` below
  * To add something new to the world, create a class with that shape and
  * append it in `#createObjects`.
  */
@@ -23,6 +24,7 @@ export class NeonBackground {
   #scene;
   #camera;
   #composer;
+  #bloom;
   #parallax;
   #objects = [];
   #timer = new THREE.Timer();
@@ -46,7 +48,7 @@ export class NeonBackground {
 
     this.#createObjects();
 
-    this.#composer = createComposer(this.#renderer, this.#scene, this.#camera);
+    ({ composer: this.#composer, bloom: this.#bloom } = createComposer(this.#renderer, this.#scene, this.#camera));
     this.#parallax = reducedMotion ? null : new MouseParallax(this.#camera, target);
 
     window.addEventListener('resize', this.#handleResize);
@@ -58,11 +60,30 @@ export class NeonBackground {
     return Promise.all(this.#objects.map((obj) => obj.ready));
   }
 
+  /**
+   * Live-updates scene colors. Accepts any subset of the keys in `palette`
+   * (config.js); values can be numbers (0xff2bd6) or CSS strings ('#ff2bd6').
+   */
+  setPalette(colors) {
+    Object.assign(palette, colors);
+    this.#scene.fog.color.set(palette.fog);
+    for (const obj of this.#objects) obj.setPalette?.(palette);
+  }
+
+  /** Neon glow intensity (bloom strength), 0 = no glow. */
+  get glow() {
+    return this.#bloom.strength;
+  }
+
+  set glow(strength) {
+    this.#bloom.strength = strength;
+  }
+
   #createObjects() {
     const skyGrid = new Grid({
       ceiling: true,
       y: config.skyGrid.height,
-      color: palette.skyGridLine,
+      colorKey: 'skyGridLine',
       opacity: config.skyGrid.opacity,
       cellSize: config.skyGrid.cellSize,
     });

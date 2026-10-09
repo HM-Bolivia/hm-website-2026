@@ -12,13 +12,14 @@ export class Grid {
   constructor({
     y = 0,
     ceiling = false,
-    color = palette.gridLine,
+    colorKey = 'gridLine', // which palette entry colors the lines
     opacity = 1,
     cellSize = config.grid.cellSize,
     lineWidth = config.grid.lineWidth,
     fadeDistance = config.grid.fadeDistance,
   } = {}) {
     this.cellSize = cellSize;
+    this.colorKey = colorKey;
 
     const geometry = new THREE.PlaneGeometry(config.grid.size, config.grid.size);
     geometry.rotateX(ceiling ? Math.PI / 2 : -Math.PI / 2);
@@ -34,7 +35,7 @@ export class Grid {
         uFadeDistance: { value: fadeDistance },
         uOpacity: { value: opacity },
         uFloor: { value: new THREE.Color(palette.floor) },
-        uLine: { value: new THREE.Color(color) },
+        uLine: { value: new THREE.Color(palette[colorKey]) },
         uFog: { value: new THREE.Color(palette.fog) },
       },
       vertexShader: /* glsl */ `
@@ -80,6 +81,13 @@ export class Grid {
 
     this.object3d = new THREE.Mesh(geometry, this.material);
     this.object3d.position.y = y;
+  }
+
+  setPalette(colors) {
+    const { uniforms } = this.material;
+    uniforms.uFloor.value.set(colors.floor);
+    uniforms.uLine.value.set(colors[this.colorKey]);
+    uniforms.uFog.value.set(colors.fog);
   }
 
   update(delta, elapsed, speed) {

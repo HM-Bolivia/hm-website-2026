@@ -46,6 +46,15 @@ The mountain is a picture: `assets-src/illimani.jpeg` (neon art on black) is con
 
 Size, position and brightness are in `config.illimani`.
 
+### Trying out palettes
+
+Add `?palette` to the URL (e.g. `http://localhost:5173/?palette` or the deployed site) to open a floating color editor. It recolors the page and the 3D scene live, has a few preset palettes to compare, and remembers your choice in the browser.
+
+- **Copiar enlace** copies a link with the palette encoded in it (`?palette&p=…`), so others can see exactly the same colors.
+- **Copiar valores** copies the HEX values plus ready-to-paste snippets for `src/styles/main.css` and `src/background/config.js`, to make a chosen palette the default.
+
+The editor lives in `src/palette-playground/` and is only downloaded when `?palette` is present. Which page/scene colors each swatch controls is defined in `tokens.js`; presets are in `presets.js`.
+
 ### Adding something to the world
 
 Create a class in `src/background/objects/` that exposes:
