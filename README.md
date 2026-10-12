@@ -69,3 +69,48 @@ Then add it to the list in `NeonBackground#createObjects`.
 
 - If the user has `prefers-reduced-motion` set, the world stays still and mouse parallax is off.
 - If WebGL isn't available, the canvas is removed and a CSS gradient shows instead.
+
+## Deployment
+
+The site is served from a private S3 bucket through CloudFront. GitHub Actions deploys on every push to `main`, authenticating to AWS with OIDC (no stored AWS keys).
+
+```
+infra/                         Terraform: S3, CloudFront, optional ACM certificate, GitHub OIDC role
+scripts/deploy.sh              uploads dist/ to S3 and invalidates CloudFront
+.github/workflows/deploy.yml    build + deploy on push to main
+```
+
+### 1. Create the infrastructure (once)
+
+Prerequisites: Terraform ≥ 1.10, AWS credentials with admin-level access for the first apply, and an S3 bucket for Terraform state.
+
+```sh
+cd infra
+cp backend.hcl.example backend.hcl            # point at your state bucket
+cp terraform.tfvars.example terraform.tfvars  # set github_repository = "owner/name"
+terraform init -backend-config=backend.hcl
+terraform apply
+```
+
+- If the AWS account already has the GitHub OIDC provider (`token.actions.githubusercontent.com`), set `create_github_oidc_provider = false`. There can only be one per account.
+- **Custom domain (optional):** set `domain_name`. The certificate is created in us-east-1 and `apply` waits until it is validated: add the record from the `certificate_validation_records` output at your DNS provider while it waits. Then point the domain at `cloudfront_domain_name` (CNAME, or ALIAS/ANAME at the apex).
+
+### 2. Configure GitHub
+
+In the repository: **Settings → Secrets and variables → Actions → Variables**, create the four variables printed by:
+
+```sh
+terraform output github_actions_variables
+```
+
+(`AWS_REGION`, `AWS_ROLE_ARN`, `S3_BUCKET`, `CLOUDFRONT_DISTRIBUTION_ID`). None of them are secrets.
+
+### 3. Deploy
+
+Push to `main` (or run the workflow manually from the Actions tab). The AWS role only trusts workflows from `github_repository` running on `github_branch`, so forks, pull requests and other branches cannot deploy.
+
+### Caching
+
+- `assets/*` files have content hashes in their names: cached for a year (`immutable`), never invalidated.
+- `index.html` and anything from `public/`: `max-age=0, must-revalidate`, and invalidated after each deploy.
+- Old hashed assets are deleted only after the invalidation completes. The bucket keeps previous object versions for 30 days in case you need to roll back.
