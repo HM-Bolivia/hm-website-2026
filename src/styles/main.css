@@ -1,14 +1,17 @@
 :root {
-  --pink: #ff1493;
-  --cyan: #00f0ff;
-  --yellow: #ffe45c;
-  --text: #f4e9ff;
-  --muted: #b9a6d6;
-  --bg-deep: #080e1a;
-  --panel-base: #0a0218;
+  /* Accents, each with one role: */
+  --coral: #ff7a59; /* primary buttons, featured titles */
+  --magenta: #ff7a59; /* secondary accents, tags, interactive borders */
+  --blue: #7fd7ff; /* links, panel borders, card hover */
+  --cyan: #7fd7ff; /* small glowing details */
+  --amber: #ffd166; /* section titles, highlights, active items */
+  --text: #fdf2e9;
+  --muted: #c7b8d8;
+  --bg-deep: #0b0d2a;
+  --panel-base: #121436;
   /* Derived colors follow the base ones, so changing a base color updates everything. */
   --panel: color-mix(in srgb, var(--panel-base) 78%, transparent);
-  --border: color-mix(in srgb, var(--pink) 45%, transparent);
+  --border: color-mix(in srgb, var(--blue) 40%, transparent);
   --font-display: 'Orbitron', system-ui, sans-serif;
   --font-body: 'Space Mono', ui-monospace, monospace;
   --max-width: 960px;
@@ -37,7 +40,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   /* Fallback when WebGL is unavailable. */
-  background: linear-gradient(var(--bg-deep) 0%, #033159 60%, #080e1a 100%) fixed;
+  background: linear-gradient(var(--bg-deep) 0%, #0b0d2a 60%, #090b22 100%) fixed;
 }
 
 #bg {
@@ -50,7 +53,7 @@ body {
 }
 
 a {
-  color: var(--cyan);
+  color: var(--blue);
 }
 
 /* Intro: content waits off-screen until the scene is ready, then slides up over it (see src/intro.js). */
@@ -100,7 +103,7 @@ a {
 }
 
 .logo span {
-  color: var(--pink);
+  color: var(--coral);
   margin-left: 0.4em;
 }
 
@@ -123,7 +126,7 @@ a {
 }
 
 .site-header nav a:hover {
-  color: var(--cyan);
+  color: var(--amber);
 }
 
 /* Hero banner */
@@ -163,9 +166,9 @@ a {
   text-transform: uppercase;
   color: #fff;
   text-shadow:
-    0 0 6px var(--pink),
-    0 0 20px var(--pink),
-    0 0 45px var(--pink);
+    0 0 6px var(--coral),
+    0 0 20px var(--coral),
+    0 0 45px var(--coral);
 }
 
 .neon .hex {
@@ -176,9 +179,9 @@ a {
 .year {
   margin: 0.25rem 0 0;
   font-family: var(--font-display);
-  color: var(--yellow);
+  color: var(--amber);
   letter-spacing: 0.3em;
-  text-shadow: 0 0 10px color-mix(in srgb, var(--yellow) 60%, transparent);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--amber) 60%, transparent);
 }
 
 .lead {
@@ -201,37 +204,38 @@ a {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.75rem;
-  border: 2px solid var(--cyan);
-  color: var(--cyan);
+  border: 2px solid var(--coral);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-family: var(--font-display);
   font-size: 0.85rem;
-  background: color-mix(in srgb, var(--bg-deep) 70%, transparent);
-  box-shadow:
-    0 0 12px color-mix(in srgb, var(--cyan) 50%, transparent),
-    inset 0 0 12px color-mix(in srgb, var(--cyan) 30%, transparent);
+  /* Primary (CTA) is solid so it stands out from the outlined secondary button. */
+  background: var(--coral);
+  color: var(--bg-deep);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--coral) 50%, transparent);
   transition:
     background 0.2s,
-    color 0.2s;
+    color 0.2s,
+    box-shadow 0.2s;
 }
 
 .btn:hover {
-  background: var(--cyan);
-  color: var(--bg-deep);
+  box-shadow: 0 0 24px var(--coral);
 }
 
 .btn-secondary {
-  border-color: var(--pink);
-  color: var(--pink);
+  border-color: var(--magenta);
+  color: var(--magenta);
+  background: color-mix(in srgb, var(--bg-deep) 70%, transparent);
   box-shadow:
-    0 0 12px color-mix(in srgb, var(--pink) 45%, transparent),
-    inset 0 0 12px color-mix(in srgb, var(--pink) 25%, transparent);
+    0 0 12px color-mix(in srgb, var(--magenta) 45%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--magenta) 25%, transparent);
 }
 
 .btn-secondary:hover {
-  background: var(--pink);
+  background: var(--magenta);
+  color: var(--bg-deep);
 }
 
 /* Content panels */
@@ -242,7 +246,7 @@ a {
   background: var(--panel);
   border: 1px solid var(--border);
   backdrop-filter: blur(8px);
-  box-shadow: 0 0 24px color-mix(in srgb, var(--pink) 15%, transparent);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--blue) 15%, transparent);
 }
 
 @media (max-width: 1008px) {
@@ -263,14 +267,14 @@ h4 {
 h2 {
   margin-top: 0;
   font-size: clamp(1.25rem, 4vw, 1.75rem);
-  color: var(--yellow);
-  text-shadow: 0 0 10px color-mix(in srgb, var(--yellow) 60%, transparent);
+  color: var(--amber);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--amber) 50%, transparent);
 }
 
 h3 {
   margin: 2rem 0 0.75rem;
   font-size: 1rem;
-  color: var(--pink);
+  color: var(--magenta);
 }
 
 .highlight {
@@ -302,8 +306,8 @@ address {
 
 .tags li {
   padding: 0.25rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--cyan) 50%, transparent);
-  color: var(--cyan);
+  border: 1px solid color-mix(in srgb, var(--magenta) 50%, transparent);
+  color: var(--magenta);
   font-size: 0.85rem;
 }
 
@@ -319,7 +323,15 @@ address {
 
 .card {
   padding: 1rem 1.25rem;
-  border: 1px solid color-mix(in srgb, var(--cyan) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--blue) 40%, transparent);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.card:hover {
+  border-color: var(--blue);
+  background: color-mix(in srgb, var(--blue) 10%, transparent);
 }
 
 .card h4 {
@@ -344,7 +356,7 @@ address {
   justify-content: space-between;
   gap: 0.25rem 1rem;
   padding: 0.6rem 0;
-  border-bottom: 1px dashed color-mix(in srgb, var(--pink) 35%, transparent);
+  border-bottom: 1px dashed color-mix(in srgb, var(--magenta) 35%, transparent);
 }
 
 .dates dt {
@@ -359,7 +371,7 @@ address {
 
 /* FAQ */
 .faq details {
-  border-bottom: 1px solid color-mix(in srgb, var(--pink) 30%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--magenta) 30%, transparent);
 }
 
 .faq summary {
@@ -382,7 +394,7 @@ address {
   transform: translateY(-50%);
   font-family: var(--font-display);
   font-size: 1.25rem;
-  color: var(--pink);
+  color: var(--magenta);
 }
 
 .faq details[open] summary::after {
@@ -390,7 +402,11 @@ address {
 }
 
 .faq summary:hover {
-  color: var(--cyan);
+  color: var(--blue);
+}
+
+.faq details[open] summary {
+  color: var(--amber);
 }
 
 .faq details p {
@@ -425,9 +441,4 @@ address {
   html {
     scroll-behavior: auto;
   }
-}
-
-/* TEMP: hide the content to look at the background. Remove when done. */
-.page {
-  display: none !important;
 }

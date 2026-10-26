@@ -2,14 +2,14 @@
 // Every object reads from here, so restyling the world rarely needs code changes.
 
 export const palette = {
-  skyTop: 0x080e1a,
-  skyHorizon: 0x033159,
-  fog: 0x022340,
-  floor: 0x080e1a,
-  gridLine: 0x0088ff,
-  skyGridLine: 0x0070f3,
-  mountainFill: 0x033159,
-  mountainLine: 0xff9e00,
+  skyTop: 0x0b0d2a,
+  skyHorizon: 0x0b0d2a,
+  fog: 0x1d1640,
+  floor: 0x090b22,
+  gridLine: 0xff7a59,
+  skyGridLine: 0x0b0d2a,
+  mountainFill: 0x10122e,
+  mountainLine: 0xffd166,
   sunTop: 0xffd000,
   sunBottom: 0xff4000,
 };
@@ -63,11 +63,11 @@ export const config = {
     position: { x: 36, z: -650 }, // x recenters the mountain, which sits left of center in the image
     width: 1100, // scene units; height follows the image's aspect ratio
     sink: 0.12, // fraction of the image height pushed below the floor
-    brightness: 0.45, // < 1 tames the bloom on the hot pinks
+    brightness: 0.45, // < 1 keeps the bloom from washing the artwork out
   },
 
   bloom: {
-    strength: 0.55,
+    strength: 0.25,
     radius: 0.35,
     threshold: 0.25,
   },

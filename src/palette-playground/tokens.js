@@ -7,11 +7,12 @@
  * so they never drift from the real site.
  */
 export const TOKENS = [
-  { id: 'pink', label: 'Magenta neón', hint: 'Títulos, bordes', group: 'Acentos', css: '--pink' },
+  { id: 'coral', label: 'Coral', hint: 'Botones principales, brillo del título', group: 'Acentos', css: '--coral' },
+  { id: 'magenta', label: 'Magenta', hint: 'Etiquetas, subtítulos, bordes', group: 'Acentos', css: '--magenta' },
+  { id: 'blue', label: 'Azul eléctrico', hint: 'Enlaces, bordes de paneles, tarjetas', group: 'Acentos', css: '--blue' },
+  { id: 'cyan', label: 'Cian', hint: 'Detalles luminosos', group: 'Acentos', css: '--cyan' },
+  { id: 'amber', label: 'Ámbar', hint: 'Títulos de sección, año, líneas de las montañas', group: 'Acentos', css: '--amber', scene: 'mountainLine' },
   { id: 'floorGrid', label: 'Grilla del piso', hint: 'Líneas del piso', group: 'Acentos', scene: 'gridLine' },
-  { id: 'cyan', label: 'Cian neón', hint: 'Botones, enlaces', group: 'Acentos', css: '--cyan' },
-  { id: 'amber', label: 'Ámbar', hint: 'Líneas de las montañas', group: 'Acentos', scene: 'mountainLine' },
-  { id: 'yellow', label: 'Amarillo', hint: 'Títulos de sección, año', group: 'Acentos', css: '--yellow' },
   { id: 'violet', label: 'Grilla del cielo', hint: 'Líneas del cielo', group: 'Acentos', scene: 'skyGridLine' },
 
   { id: 'night', label: 'Noche', hint: 'Fondo, parte alta del cielo', group: 'Fondos', css: '--bg-deep', scene: 'skyTop' },

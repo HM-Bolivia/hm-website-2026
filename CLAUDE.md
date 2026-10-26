@@ -56,13 +56,13 @@ docs/color-palette.md         palette for designers/marketing
 - A 6 s fail-safe in the inline script always reveals the content, even if JS fails to load.
 
 ### Colors (keep these in sync)
-- Page colors: `:root` in `main.css`. Scene colors: `palette` in `config.js`. Only `--bg-deep` = `skyTop` is shared. The grid and mountain line colors are scene-only, and `--pink` / `--cyan` are page-only.
-- **Never hardcode palette colors as `rgba(...)` in CSS.** Use `color-mix(in srgb, var(--pink) 45%, transparent)`, so the palette editor and future palette changes recolor everything.
+- Page colors: `:root` in `main.css`. Scene colors: `palette` in `config.js`. Shared: `--bg-deep` = `skyTop`, `--amber` = `mountainLine`. The grid lines are scene-only. Page accents each have one role (see the comments in `:root`).
+- **Never hardcode palette colors as `rgba(...)` in CSS.** Use `color-mix(in srgb, var(--magenta) 45%, transparent)`, so the palette editor and future palette changes recolor everything.
 - `src/palette-playground/tokens.js` maps each editable swatch to its CSS variable and/or scene key. Its defaults are read at runtime, so no values are duplicated there.
 - When a default color changes, also update `docs/color-palette.md`.
 
 ### Palette editor
-- Opened with `?palette` (a shared link carries `?palette&p=<14 hex values>&g=<glow>`). It's dynamically imported so normal visitors don't download it.
+- Opened with `?palette` (a shared link carries `?palette&p=<15 hex values>&g=<glow>`). It's dynamically imported so normal visitors don't download it.
 - Its own UI uses fixed neutral colors on purpose, so it stays readable whatever palette is being tried. Labels are in Spanish.
 
 ## Content and language
