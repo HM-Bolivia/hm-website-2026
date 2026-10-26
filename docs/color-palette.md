@@ -1,6 +1,6 @@
 # Hackmeeting 0x7EA: color palette
 
-Visual identity: an **80s neon (synthwave) night**. A very dark violet base, lit by three neon accents: **pink**, **cyan** and **yellow**. The neon look comes from bright colors on dark backgrounds plus a glow; it does not work on light backgrounds.
+Visual identity: an **80s neon (synthwave) night in the Andes**. A very dark navy base and a blue neon grid, with **amber** mountains echoing the Illimani's sunset. The page adds **magenta**, **cyan** and **yellow** accents. The neon look comes from bright colors on dark backgrounds plus a glow; it does not work on light backgrounds.
 
 > **Try alternatives live:** open the site with `?palette` at the end of the URL (for example `https://<site>/?palette`). A panel lets you change every color, compare preset palettes, and copy a link to share your proposal.
 
@@ -10,20 +10,20 @@ Visual identity: an **80s neon (synthwave) night**. A very dark violet base, lit
 
 | Name | HEX | RGB | Where it's used |
 |---|---|---|---|
-| **Neon Pink** | `#FF2BD6` | 255, 43, 214 | Main accent. Floor grid, glow on the "HACKMEETING 0x7EA" title, subheadings, panel borders, secondary buttons |
-| **Neon Cyan** | `#00F0FF` | 0, 240, 255 | Second accent. Wireframe mountains, primary buttons, links, topic tags, dates and venue highlights |
+| **Neon Magenta** | `#FF1493` | 255, 20, 147 | Main page accent. Glow on the "HACKMEETING 0x7EA" title, subheadings, panel borders, secondary buttons |
+| **Neon Cyan** | `#00F0FF` | 0, 240, 255 | Second accent. Primary buttons, links, topic tags, dates and venue highlights |
+| **Laser Amber** | `#FF9E00` | 255, 158, 0 | Wireframe mountains |
 | **Neon Yellow** | `#FFE45C` | 255, 228, 92 | Highlight, used sparingly. Section titles, the year "(2026)" |
-| **Electric Violet** | `#B04DFF` | 176, 77, 255 | Sky grid (semi-transparent over the sky) |
+| **Electric Blue** | `#0088FF` | 0, 136, 255 | Floor grid |
+| **Deep Electric Blue** | `#0070F3` | 0, 112, 243 | Sky grid (semi-transparent over the sky) |
 
 ## Backgrounds (darks)
 
 | Name | HEX | RGB | Where it's used |
 |---|---|---|---|
-| **Deep Night** | `#05010F` | 5, 1, 15 | Main background, top of the sky, button backgrounds |
-| **Midnight Plum** | `#3A0A4A` | 58, 10, 74 | Glow at the horizon (bottom of the sky gradient) |
-| **Dusk Haze** | `#1A0626` | 26, 6, 38 | Fog and distance haze |
-| **Floor Black** | `#07020F` | 7, 2, 15 | Floor between the grid lines |
-| **Mountain Ink** | `#0A0418` | 10, 4, 24 | Fill of the wireframe mountains |
+| **Void Base** | `#080E1A` | 8, 14, 26 | Main background, top of the sky, floor between the grid lines, button backgrounds |
+| **Deep Blue** | `#033159` | 3, 49, 89 | Glow at the horizon (bottom of the sky gradient), fill of the wireframe mountains |
+| **Andean Night** | `#022340` | 2, 35, 64 | Fog and distance haze |
 | **Panel** | `#0A0218` at 78% opacity | 10, 2, 24 | Content panels over the scene (with a light blur) |
 
 ## Text
@@ -46,37 +46,39 @@ The neon Illimani (`assets-src/illimani.jpeg`) has its own colors. These are **a
 | Snow Lilac | `#CCC4DD` | Snow highlights |
 | Summit Magenta | `#CD4CBE` | Pink light on the snow |
 
-Its outline uses the same Neon Cyan and its snow the same Neon Pink as the rest of the palette, plus touches of orange.
+Its outline uses the same Neon Cyan and its snow the same pink as the rest of the palette, plus touches of orange.
 
 ## Gradients
 
-- **Night sky:** `#05010F` (top) → `#3A0A4A` (horizon). Use it as the background for posters, banners and social media images.
-- **Horizon glow:** the floor grid fades into `#1A0626` at the horizon, where the pink lines blend into a bright magenta glow.
+- **Night sky:** `#080E1A` (top) → `#033159` (horizon). Use it as the background for posters, banners and social media images.
+- **Horizon glow:** the floor grid fades into `#022340` at the horizon, where the blue lines blend into a bright blue glow.
 
 ## The neon glow
 
 On the site, the glow is a stack of soft shadows in the accent color behind white or neon text. For the main title:
 
 - Text: White `#FFFFFF`
-- Glow: Neon Pink `#FF2BD6` at 6 px, 20 px and 45 px blur
+- Glow: Neon Magenta `#FF1493` at 6 px, 20 px and 45 px blur
 
 In design tools (Figma, Illustrator, etc.), recreate it with 2 or 3 "outer glow" or "drop shadow" layers of the same color, with no offset and increasing blur.
 
 ## Contrast (accessibility)
 
-Contrast ratio against Deep Night `#05010F` (WCAG: 4.5:1 minimum for normal text, 3:1 for large text):
+Contrast ratio against Void Base `#080E1A` (WCAG: 4.5:1 minimum for normal text, 3:1 for large text):
 
 | Color | Ratio | OK for |
 |---|---|---|
-| White `#FFFFFF` | 20.6:1 | Everything |
-| Lavender White `#F4E9FF` | 17.6:1 | Everything |
-| Neon Yellow `#FFE45C` | 16.2:1 | Everything |
-| Neon Cyan `#00F0FF` | 14.6:1 | Everything |
-| Muted Lilac `#B9A6D6` | 9.3:1 | Everything |
-| Neon Pink `#FF2BD6` | 6.5:1 | Normal and large text |
-| Electric Violet `#B04DFF` | 5.3:1 | Normal and large text (prefer it for decoration) |
+| White `#FFFFFF` | 19.3:1 | Everything |
+| Lavender White `#F4E9FF` | 16.5:1 | Everything |
+| Neon Yellow `#FFE45C` | 15.2:1 | Everything |
+| Neon Cyan `#00F0FF` | 13.7:1 | Everything |
+| Laser Amber `#FF9E00` | 9.3:1 | Everything |
+| Muted Lilac `#B9A6D6` | 8.7:1 | Everything |
+| Neon Magenta `#FF1493` | 5.3:1 | Normal and large text |
+| Electric Blue `#0088FF` | 5.5:1 | Normal and large text (prefer it for decoration) |
+| Deep Electric Blue `#0070F3` | 4.2:1 | Large text only (prefer it for decoration) |
 
-The values are almost the same on the content panels. For text on a solid neon background (for example a button on hover), use Deep Night `#05010F`: 14.6:1 on cyan, 6.5:1 on pink.
+The values are almost the same on the content panels. For text on a solid neon background (for example a button on hover), use Void Base `#080E1A`: 13.7:1 on cyan, 5.3:1 on magenta.
 
 ## Usage guidelines
 
@@ -90,7 +92,7 @@ The values are almost the same on the content panels. For text on a solid neon b
 Neon colors can't be reproduced in standard CMYK: they come out dull. Options:
 
 - **Fluorescent spot inks** (for example Pantone's 801 C–807 C neon range): ask the print shop for a proof against the HEX values above.
-- If only CMYK is available, **print on a dark background** (Deep Night or Glacier Navy) to keep the contrast, and accept that the colors will be less intense.
+- If only CMYK is available, **print on a dark background** (Void Base or Glacier Navy) to keep the contrast, and accept that the colors will be less intense.
 
 ## Typography (for reference)
 

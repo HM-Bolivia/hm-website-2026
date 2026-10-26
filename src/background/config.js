@@ -2,14 +2,14 @@
 // Every object reads from here, so restyling the world rarely needs code changes.
 
 export const palette = {
-  skyTop: 0x05010f,
-  skyHorizon: 0x3a0a4a,
-  fog: 0x1a0626,
-  floor: 0x07020f,
-  gridLine: 0xff2bd6,
-  skyGridLine: 0xb04dff,
-  mountainFill: 0x0a0418,
-  mountainLine: 0x00f0ff,
+  skyTop: 0x080e1a,
+  skyHorizon: 0x033159,
+  fog: 0x022340,
+  floor: 0x080e1a,
+  gridLine: 0x0088ff,
+  skyGridLine: 0x0070f3,
+  mountainFill: 0x033159,
+  mountainLine: 0xff9e00,
   sunTop: 0xffd000,
   sunBottom: 0xff4000,
 };
@@ -60,8 +60,8 @@ export const config = {
 
   // Neon artwork from src/assets/illimani.png (regenerate with `npm run assets:illimani`).
   illimani: {
-    position: { x: 0, z: -650 },
-    width: 750, // scene units; height follows the image's aspect ratio
+    position: { x: 36, z: -650 }, // x recenters the mountain, which sits left of center in the image
+    width: 1100, // scene units; height follows the image's aspect ratio
     sink: 0.12, // fraction of the image height pushed below the floor
     brightness: 0.45, // < 1 tames the bloom on the hot pinks
   },

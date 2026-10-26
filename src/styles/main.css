@@ -1,10 +1,10 @@
 :root {
-  --pink: #ff2bd6;
+  --pink: #ff1493;
   --cyan: #00f0ff;
   --yellow: #ffe45c;
   --text: #f4e9ff;
   --muted: #b9a6d6;
-  --bg-deep: #05010f;
+  --bg-deep: #080e1a;
   --panel-base: #0a0218;
   /* Derived colors follow the base ones, so changing a base color updates everything. */
   --panel: color-mix(in srgb, var(--panel-base) 78%, transparent);
@@ -37,7 +37,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   /* Fallback when WebGL is unavailable. */
-  background: linear-gradient(var(--bg-deep) 0%, #3a0a4a 60%, #07020f 100%) fixed;
+  background: linear-gradient(var(--bg-deep) 0%, #033159 60%, #080e1a 100%) fixed;
 }
 
 #bg {
@@ -425,4 +425,9 @@ address {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* TEMP: hide the content to look at the background. Remove when done. */
+.page {
+  display: none !important;
 }
