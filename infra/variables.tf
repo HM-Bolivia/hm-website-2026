@@ -38,6 +38,22 @@ variable "domain_name" {
   default     = null
 }
 
+variable "acm_certificate_arn" {
+  description = "Optional ARN of an existing, already validated ACM certificate in us-east-1 covering domain_name. Null creates and validates a new one."
+  type        = string
+  default     = null
+
+  validation {
+    condition     = var.acm_certificate_arn == null || var.domain_name != null
+    error_message = "acm_certificate_arn requires domain_name to be set."
+  }
+
+  validation {
+    condition     = var.acm_certificate_arn == null || can(regex("^arn:aws[a-z-]*:acm:us-east-1:[0-9]{12}:certificate/.+$", var.acm_certificate_arn))
+    error_message = "Use an ACM certificate ARN from us-east-1 (CloudFront only accepts certificates from that region)."
+  }
+}
+
 variable "price_class" {
   description = "CloudFront price class. PriceClass_All includes South American edge locations."
   type        = string

@@ -5,3 +5,4 @@ github_repository = "owner/hackmeeting2026"
 # aws_region                  = "us-east-1"
 # create_github_oidc_provider = false # if the account already has the GitHub OIDC provider
 # domain_name                 = "hackmeeting.example.org"
+# acm_certificate_arn         = "arn:aws:acm:us-east-1:123456789012:certificate/..." # reuse an already validated cert

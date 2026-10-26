@@ -67,7 +67,7 @@ resource "aws_cloudfront_distribution" "site" {
 
   viewer_certificate {
     cloudfront_default_certificate = var.domain_name == null
-    acm_certificate_arn            = var.domain_name == null ? null : aws_acm_certificate_validation.site[0].certificate_arn
+    acm_certificate_arn            = local.certificate_arn
     ssl_support_method             = var.domain_name == null ? null : "sni-only"
     minimum_protocol_version       = var.domain_name == null ? "TLSv1" : "TLSv1.2_2021"
   }

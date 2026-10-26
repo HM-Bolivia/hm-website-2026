@@ -9,8 +9,8 @@ output "cloudfront_domain_name" {
 }
 
 output "certificate_validation_records" {
-  description = "DNS records to create so ACM can validate the certificate (only with a custom domain)."
-  value = var.domain_name == null ? [] : [
+  description = "DNS records to create so ACM can validate the certificate (only when Terraform creates it)."
+  value = !local.create_certificate ? [] : [
     for o in aws_acm_certificate.site[0].domain_validation_options : {
       name  = o.resource_record_name
       type  = o.resource_record_type
