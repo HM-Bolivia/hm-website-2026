@@ -62,7 +62,7 @@ export const config = {
   illimani: {
     position: { x: 36, z: -650 }, // x recenters the mountain, which sits left of center in the image
     width: 1100, // scene units; height follows the image's aspect ratio
-    sink: 0.12, // fraction of the image height pushed below the floor
+    sink: 0, // fraction of the image height pushed below the floor; negative lifts it above
     brightness: 0.45, // < 1 keeps the bloom from washing the artwork out
   },
 

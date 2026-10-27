@@ -18,8 +18,8 @@
   --header-height: 4rem;
 
   /* Intro: how long Illimani is shown alone once loaded, and how long the content takes to slide up. */
-  --intro-delay: 0.8s;
-  --intro-duration: 1.4s;
+  --intro-delay: 0.3s;
+  --intro-duration: 0.8s;
 }
 
 *,
@@ -59,6 +59,11 @@ body {
 
 a {
   color: var(--blue);
+}
+
+/* ?fondo: background only, for checking the scene (set by the inline script in index.html). */
+.no-content .page {
+  display: none;
 }
 
 /* Intro: content waits off-screen until the scene is ready, then slides up over it (see src/intro.js). */

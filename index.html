@@ -31,7 +31,10 @@
     </style>
     <script>
       // Runs before first paint so the content starts off-screen for the intro (see src/intro.js).
-      if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // ?fondo instead hides the content to look at the background alone (see .no-content in main.css).
+      if (new URLSearchParams(location.search).has('fondo')) {
+        document.documentElement.classList.add('no-content');
+      } else if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('intro');
         history.scrollRestoration = 'manual';
         // Fail-safe: never leave the content hidden if the scripts fail to load.
