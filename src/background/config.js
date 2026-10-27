@@ -16,7 +16,7 @@ export const palette = {
 
 export const config = {
   // Units per second the world scrolls toward the camera.
-  speed: 2,
+  speed: 7,
 
   camera: {
     fov: 60,
