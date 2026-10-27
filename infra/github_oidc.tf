@@ -19,6 +19,17 @@ locals {
     ? aws_iam_openid_connect_provider.github[0].arn
     : data.aws_iam_openid_connect_provider.github[0].arn
   )
+
+  # GitHub can pin the subject to the owner and repo IDs, so a renamed or
+  # recreated repo with the same name can't assume the role. When that's on,
+  # the subject is "repo:owner@<id>/name@<id>:...". CloudTrail's failed
+  # AssumeRoleWithWebIdentity events show the exact subject GitHub sent.
+  github_repo_parts = split("/", var.github_repository)
+  github_subject_repo = (
+    var.github_owner_id == null
+    ? var.github_repository
+    : "${local.github_repo_parts[0]}@${var.github_owner_id}/${local.github_repo_parts[1]}@${var.github_repository_id}"
+  )
 }
 
 data "aws_iam_policy_document" "deploy_trust" {
@@ -42,7 +53,7 @@ data "aws_iam_policy_document" "deploy_trust" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_repository}:ref:refs/heads/${var.github_branch}"]
+      values   = ["repo:${local.github_subject_repo}:ref:refs/heads/${var.github_branch}"]
     }
   }
 }

@@ -72,8 +72,8 @@ docs/color-palette.md         palette for designers/marketing
 - Sections and their anchors: banner `#inicio`, `#cfp` (titled "Call for papers"; there is a single talk format, no workshops or lightning talks), `#fecha`, `#lugar`, `#faq`.
 
 ## Deployment and infra
-- **CI deploys from `main` only.** The workflow trigger and the IAM role trust (`github_branch`, default `main`) both say `main`. *Known issue:* the repo's branch is currently `master`, so nothing deploys until the branch is renamed or both settings are changed together.
-- OIDC trust subject is `repo:<github_repository>:ref:refs/heads/<github_branch>`. **Don't add `environment:` to the deploy job**: it changes the token subject and the role would reject it.
+- **CI deploys from `master` only.** The workflow trigger and the IAM role trust (`github_branch` in `terraform.tfvars`; the variable defaults to `main`) must change together.
+- OIDC trust subject is `repo:<github_repository>:ref:refs/heads/<github_branch>`. This org sends **ID-pinned subjects** (`repo:HM-Bolivia@70455766/hm-website-2026@1412132984:...`), set via `github_owner_id` / `github_repository_id`. If the role is rejected, failed `AssumeRoleWithWebIdentity` events in CloudTrail show the exact subject GitHub sent. **Don't add `environment:` to the deploy job**: it changes the token subject and the role would reject it.
 - The deploy role is least-privilege (this bucket + this distribution's invalidations). Terraform is run by hand, never in CI: it would need admin-level AWS access in a public repo.
 - `scripts/deploy.sh` caching rules:
   - `assets/*` (hashed by Vite) are uploaded first with a 1-year `immutable` cache and are never invalidated.

@@ -26,6 +26,23 @@ variable "github_branch" {
   default     = "main"
 }
 
+variable "github_owner_id" {
+  description = "Numeric GitHub ID of the repository owner. Set it (with github_repository_id) when the org/repo uses ID-pinned OIDC subjects (\"repo:owner@123/name@456:...\"). Null uses the plain \"repo:owner/name:...\" subject."
+  type        = number
+  default     = null
+}
+
+variable "github_repository_id" {
+  description = "Numeric GitHub ID of the repository. See github_owner_id."
+  type        = number
+  default     = null
+
+  validation {
+    condition     = (var.github_repository_id == null) == (var.github_owner_id == null)
+    error_message = "Set both github_owner_id and github_repository_id, or neither."
+  }
+}
+
 variable "create_github_oidc_provider" {
   description = "Create the GitHub OIDC identity provider. Set to false if the account already has one (only one is allowed per account)."
   type        = bool
