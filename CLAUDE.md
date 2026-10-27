@@ -69,7 +69,7 @@ docs/color-palette.md         palette for designers/marketing
 - **All site copy is in Latin American Spanish, using *tú*.** The UI of tools shown to organizers (palette editor) is Spanish too.
 - The event name is written **`0x7ea`** in lowercase (0x7EA = 2026), including the title; `.hex` disables `text-transform` for it.
 - Pending event data is marked with `[PLACEHOLDERS EN CORCHETES]`, and placeholder URLs have `TODO` comments (CFP form, map link). Don't invent real dates, venues or links.
-- Sections and their anchors: banner `#inicio`, `#convocatoria`, `#fecha`, `#lugar`, `#faq`.
+- Sections and their anchors: banner `#inicio`, `#cfp` (titled "Call for papers"; there is a single talk format, no workshops or lightning talks), `#fecha`, `#lugar`, `#faq`.
 
 ## Deployment and infra
 - **CI deploys from `main` only.** The workflow trigger and the IAM role trust (`github_branch`, default `main`) both say `main`. *Known issue:* the repo's branch is currently `master`, so nothing deploys until the branch is renamed or both settings are changed together.
