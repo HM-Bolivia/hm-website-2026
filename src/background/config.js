@@ -6,17 +6,17 @@ export const palette = {
   skyHorizon: 0x0b0d2a,
   fog: 0x1d1640,
   floor: 0x090b22,
-  gridLine: 0xff7a59,
+  gridLine: 0xe76a4b,
   skyGridLine: 0x0b0d2a,
   mountainFill: 0x10122e,
-  mountainLine: 0xffd166,
+  mountainLine: 0xe2b346,
   sunTop: 0xffd000,
   sunBottom: 0xff4000,
 };
 
 export const config = {
   // Units per second the world scrolls toward the camera.
-  speed: 7,
+  speed: 2,
 
   camera: {
     fov: 60,
@@ -45,7 +45,7 @@ export const config = {
     radius: 130,
     position: { x: 0, y: 170, z: -700 },
     stripes: 14,
-    stripeSpeed: 0.12,
+    stripeSpeed: 0.22,
     intensity: 0.75, // < 1 keeps the bloom from washing the colors out to white
   },
 
