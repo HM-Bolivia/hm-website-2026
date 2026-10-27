@@ -18,7 +18,7 @@
   --header-height: 4rem;
 
   /* Intro: how long Illimani is shown alone once loaded, and how long the content takes to slide up. */
-  --intro-delay: 1.2s;
+  --intro-delay: 0.8s;
   --intro-duration: 1.4s;
 }
 
@@ -41,6 +41,11 @@ body {
   line-height: 1.6;
   /* Fallback when WebGL is unavailable. */
   background: linear-gradient(var(--bg-deep) 0%, #0b0d2a 60%, #090b22 100%) fixed;
+}
+
+/* Undoes the inline style in index.html that hides the content until this file has loaded. */
+.page {
+  visibility: visible;
 }
 
 #bg {
