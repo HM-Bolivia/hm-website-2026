@@ -68,8 +68,9 @@ docs/color-palette.md         palette for designers/marketing
 ## Content and language
 - **All site copy is in Latin American Spanish, using *tú*.** The UI of tools shown to organizers (palette editor) is Spanish too.
 - The event name is written **`0x7ea`** in lowercase (0x7EA = 2026), including the title; `.hex` disables `text-transform` for it.
-- Pending event data is marked with `[PLACEHOLDERS EN CORCHETES]`, and placeholder URLs have `TODO` comments (CFP form, map link). Don't invent real dates, venues or links.
-- Sections and their anchors: banner `#inicio`, `#cfp` (titled "Call for papers"; there is a single talk format, no workshops or lightning talks), `#fecha`, `#lugar`, `#faq`.
+- Pending event data is marked with `[PLACEHOLDERS EN CORCHETES]`, and placeholder URLs have `TODO` comments (CFP form: a `mailto:` until the real form exists). Don't invent real dates, venues or links.
+- `public/` holds `favicon.ico` (from the 0x7e3 site) and `og-image.png` (1200×630 link-preview card: a headless-Chrome shot of the hero with header, paragraphs and buttons hidden, `--force-prefers-reduced-motion` to skip the intro). Regenerate the card when the title or dates change. The `og:` tags in `index.html` need absolute URLs (domain: `0x7ea.hackmeeting.org.bo`).
+- Sections and their anchors: banner `#inicio`, `#acerca` (history; links to memorias.hackmeeting.org.bo), `#cfp` (titled "Call for papers"; there is a single talk format, no workshops or lightning talks), `#fecha`, `#lugar`, `#faq`.
 
 ## Deployment and infra
 - **CI deploys from `master` only.** The workflow trigger and the IAM role trust (`github_branch` in `terraform.tfvars`; the variable defaults to `main`) must change together.

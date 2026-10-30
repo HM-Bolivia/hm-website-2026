@@ -8,8 +8,23 @@
       name="description"
       content="Hackmeeting 0x7ea (2026): encuentro de hacking, software libre, seguridad y cultura libre. 4 y 5 de diciembre en La Paz, BO. Call for papers abierto."
     />
-    <link rel="shortcut icon" href="https://0x7e3.hackmeeting.org.bo/img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://0x7e3.hackmeeting.org.bo/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <!-- Link previews (WhatsApp, Facebook, Telegram, X). Crawlers need absolute URLs. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_BO" />
+    <meta property="og:site_name" content="Hackmeeting Bolivia" />
+    <meta property="og:title" content="Hackmeeting 0x7ea (2026) · La Paz" />
+    <meta
+      property="og:description"
+      content="Encuentro de hacking, software libre y cultura libre. 4 y 5 de diciembre en la UMSA, La Paz. Call for papers abierto."
+    />
+    <meta property="og:url" content="https://0x7ea.hackmeeting.org.bo/" />
+    <meta property="og:image" content="https://0x7ea.hackmeeting.org.bo/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hackmeeting 0x7ea: el Illimani sobre una grilla neón" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,10 +66,12 @@
         <a class="logo" href="#inicio">HM<span>0x7ea</span></a>
         <nav aria-label="Secciones">
           <ul>
+            <li><a href="#acerca">Acerca</a></li>
             <li><a href="#cfp">Call for papers</a></li>
             <li><a href="#fecha">Fecha</a></li>
             <li><a href="#lugar">Lugar</a></li>
             <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://memorias.hackmeeting.org.bo/" target="_blank" rel="noopener">Memorias</a></li>
           </ul>
         </nav>
       </header>
@@ -82,6 +99,24 @@
           </div>
         </section>
 
+        <section id="acerca" class="panel">
+          <h2>Sobre el Hackmeeting</h2>
+          <p>
+            El Hackmeeting nació en La Paz en 2010, organizado por el hacklab r00thouse. Desde entonces lo han
+            retomado comunidades de distintos departamentos del país, y se ha realizado en ciudades como Santa Cruz,
+            Cochabamba, Oruro, Tarija, Potosí, El Alto y Yacuiba, siempre organizado por personas voluntarias.
+          </p>
+          <p>
+            Es autogestionado y sin fines de lucro, y busca compartir conocimiento para el desarrollo social. Más allá
+            de las charlas, lo importante es encontrarse en persona, debatir y volver a casa con nuevas ideas y
+            amistades.
+          </p>
+          <p class="highlight">0x7ea es la XVII edición</p>
+          <a class="btn btn-secondary" href="https://memorias.hackmeeting.org.bo/" target="_blank" rel="noopener"
+            >Ediciones anteriores</a
+          >
+        </section>
+
         <section id="cfp" class="panel">
           <h2>Call for papers</h2>
           <p>
@@ -102,17 +137,18 @@
           </ul>
 
           <h3>Formato</h3>
-          <p>Charlas de [40] minutos, incluyendo preguntas.</p>
+          <p>Charlas de 40 minutos, incluyendo preguntas.</p>
 
           <h3>Fechas importantes</h3>
           <dl class="dates">
-            <div><dt>Apertura</dt><dd>[FECHA]</dd></div>
-            <div><dt>Cierre del call for papers</dt><dd>[FECHA]</dd></div>
-            <div><dt>Notificación de resultados</dt><dd>[FECHA]</dd></div>
+            <div><dt>Cierre del call for papers</dt><dd>Domingo 15 de noviembre, 23:59 (GMT-4)</dd></div>
+            <div><dt>Notificación de resultados</dt><dd>Viernes 20 de noviembre</dd></div>
           </dl>
 
-          <!-- TODO: replace with the real submission form URL. -->
-          <a class="btn" href="https://example.com/propuestas" target="_blank" rel="noopener">Enviar propuesta</a>
+          <!-- TODO: replace with the real submission form URL; proposals go by email until it exists. -->
+          <a class="btn" href="mailto:contacto@hackmeeting.org.bo?subject=Propuesta%20de%20charla%200x7ea"
+            >Enviar propuesta</a
+          >
         </section>
 
         <section id="fecha" class="panel">
@@ -135,13 +171,11 @@
           <h2>Lugar</h2>
           <p class="highlight">Auditorio de la Carrera de Informática</p>
           <address>
+            Monoblock Central, segundo patio<br />
             Universidad Mayor de San Andrés (UMSA)<br />
             La Paz, Bolivia
           </address>
-          <p><strong>Cómo llegar:</strong> [INDICACIONES DE TRANSPORTE].</p>
-          <p><strong>Accesibilidad:</strong> [INFORMACIÓN DE ACCESIBILIDAD DEL LUGAR].</p>
-          <!-- TODO: replace with the real map link. -->
-          <a class="btn btn-secondary" href="https://www.openstreetmap.org/" target="_blank" rel="noopener"
+          <a class="btn btn-secondary" href="https://osm.org/go/NOrAtyyFj?node=2112792907" target="_blank" rel="noopener"
             >Ver en el mapa</a
           >
         </section>
@@ -151,7 +185,7 @@
           <div class="faq">
             <details>
               <summary>¿Cuánto cuesta asistir?</summary>
-              <p>La entrada es libre y gratuita. [CONFIRMAR]</p>
+              <p>Nada. La entrada es libre y gratuita.</p>
             </details>
             <details>
               <summary>¿Necesito ser experta o experto para participar?</summary>
@@ -163,23 +197,12 @@
             <details>
               <summary>¿Cómo propongo una charla?</summary>
               <p>
-                Revisa el <a href="#cfp">call for papers</a> y envía tu propuesta antes del [FECHA DE CIERRE].
-              </p>
-            </details>
-            <details>
-              <summary>¿Hay un código de conducta?</summary>
-              <p>
-                Sí. Queremos un espacio seguro y respetuoso para todas las personas. Puedes leerlo aquí: [ENLACE AL
-                CÓDIGO DE CONDUCTA].
+                Revisa el <a href="#cfp">call for papers</a> y envía tu propuesta antes del domingo 15 de noviembre.
               </p>
             </details>
             <details>
               <summary>¿Qué debo llevar?</summary>
               <p>Muchas ganas de aprender y compartir. Si quieres tomar notas o seguir alguna demo, trae tu computadora.</p>
-            </details>
-            <details>
-              <summary>¿Habrá transmisión en vivo?</summary>
-              <p>[POR CONFIRMAR]</p>
             </details>
             <details>
               <summary>¿Cómo puedo colaborar como voluntaria o voluntario?</summary>
@@ -195,6 +218,11 @@
       <footer class="site-footer">
         <p>Hackmeeting 0x7ea · 2026</p>
         <p>Contacto: <a href="mailto:contacto@hackmeeting.org.bo">contacto@hackmeeting.org.bo</a></p>
+        <p>
+          <a href="https://twitter.com/HackmeetingB0/" target="_blank" rel="noopener">X / Twitter</a> ·
+          <a href="https://www.facebook.com/hackmeetingbolivia/" target="_blank" rel="noopener">Facebook</a> ·
+          <a href="https://memorias.hackmeeting.org.bo/" target="_blank" rel="noopener">Ediciones anteriores</a>
+        </p>
       </footer>
     </div>
 

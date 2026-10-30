@@ -1,3 +1,11 @@
+/* VCR OSD Mono (by Riciery Leal, free) for the banner title and section titles. Only one weight exists,
+   so the elements using it set font-weight: normal to avoid a fake bold. */
+@font-face {
+  font-family: 'VCR OSD Mono';
+  src: url('../assets/fonts/vcr-osd-mono.ttf') format('truetype');
+  font-display: swap;
+}
+
 :root {
   /* Accents, each with one role: */
   --coral: #ff7a59; /* primary buttons, featured titles */
@@ -12,7 +20,8 @@
   /* Derived colors follow the base ones, so changing a base color updates everything. */
   --panel: color-mix(in srgb, var(--panel-base) 78%, transparent);
   --border: color-mix(in srgb, var(--blue) 40%, transparent);
-  --font-display: 'Orbitron', system-ui, sans-serif;
+  --font-display: 'Orbitron', system-ui, sans-serif; /* logo, buttons, small labels */
+  --font-title: 'VCR OSD Mono', ui-monospace, monospace; /* banner and section titles */
   --font-body: 'Space Mono', ui-monospace, monospace;
   --max-width: 960px;
   --header-height: 4rem;
@@ -169,8 +178,8 @@ a {
 
 .neon {
   margin: 0.5rem 0 0;
-  font-family: var(--font-display);
-  font-weight: 800;
+  font-family: var(--font-title);
+  font-weight: normal;
   font-size: clamp(2.25rem, 9vw, 6rem);
   line-height: 1.05;
   text-transform: uppercase;
@@ -188,7 +197,7 @@ a {
 
 .year {
   margin: 0.25rem 0 0;
-  font-family: var(--font-display);
+  font-family: var(--font-title);
   color: var(--amber);
   letter-spacing: 0.3em;
   text-shadow: 0 0 10px color-mix(in srgb, var(--amber) 60%, transparent);
@@ -268,7 +277,8 @@ a {
 h2,
 h3,
 h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-title);
+  font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   line-height: 1.3;
