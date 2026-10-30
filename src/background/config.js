@@ -15,6 +15,13 @@ export const palette = {
 };
 
 export const config = {
+  // false freezes the scene for everyone (no scrolling, no mouse sway), like prefers-reduced-motion.
+  animate: true,
+  // Seconds the world scrolls before slowing down (0 = never stops), and how long the slowdown takes.
+  // Once stopped, the render loop ends so the page stops using CPU/GPU.
+  stopAfter: 20,
+  slowDown: 4,
+
   // Units per second the world scrolls toward the camera.
   speed: 7,
 
