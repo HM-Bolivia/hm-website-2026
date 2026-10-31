@@ -96,7 +96,6 @@ Neon colors can't be reproduced in standard CMYK: they come out dull. Options:
 | Use | Font | Notes |
 |---|---|---|
 | Main title and section titles | **VCR OSD Mono** (regular only) | 80s VHS on-screen display; always in uppercase |
-| Logo, buttons, small labels | **Orbitron** (500, 800) | Geometric and futuristic; always in uppercase |
-| Body text | **Space Mono** (400, 700) | Monospace, a nod to code and terminals |
+| Everything else (text, logo, buttons, labels) | **Share Tech Mono** (regular only) | Monospace, a nod to code and terminals |
 
-Orbitron and Space Mono are free fonts from Google Fonts (SIL Open Font License). VCR OSD Mono is by Riciery Leal and is distributed as free; the font file itself includes no license text.
+Share Tech Mono is a free font from Google Fonts (SIL Open Font License). VCR OSD Mono is by Riciery Leal and is distributed as free; the font file itself includes no license text.

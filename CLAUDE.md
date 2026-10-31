@@ -47,7 +47,7 @@ docs/color-palette.md         palette for designers/marketing
 - **Mountains** are two leapfrogging tiles. Their height function must stay periodic along z (integer multiples of `TAU / length`), or a seam appears.
 - Things at floor level sink slightly below y=0 (mountains −0.1) to avoid z-fighting with the floor grid.
 - **Illimani is a textured plane**, not geometry. The artwork can't be recolored by the palette. Earlier attempts (procedural ridges, real SRTM elevation data) were rejected as not looking like the real mountain; don't reintroduce them unless asked.
-- **The animation stops by itself:** after `config.stopAfter` s (default 20) the scroll and parallax ease to zero over `config.slowDown` s, then the loop ends and the background switches to static mode (no CPU while idle). `stopAfter: 0` animates forever.
+- **The animation stops by itself:** after `config.stopAfter` s (default 12) the scroll and parallax ease to zero over `config.slowDown` s, then the loop ends and the background switches to static mode (no CPU while idle). `stopAfter: 0` animates forever.
 - **Static mode:** with `prefers-reduced-motion` or `config.animate = false` there is no render loop; `NeonBackground` draws a frame only on load, texture load, resize and palette/glow changes. Anything new that changes the scene must call `#requestRender()` for it to show in static mode. `animate` must be `true` when deploying.
 - **The Sun is intentionally removed from the scene.** `Sun.js` and `config.sun` / `palette.sunTop|sunBottom` are kept so it can come back.
 - three r186: `THREE.Timer` is in core. Colors go through three's color management (hex values are sRGB, converted to linear), and `OutputPass` converts back.

@@ -19,7 +19,7 @@ export const config = {
   animate: true,
   // Seconds the world scrolls before slowing down (0 = never stops), and how long the slowdown takes.
   // Once stopped, the render loop ends so the page stops using CPU/GPU.
-  stopAfter: 20,
+  stopAfter: 12,
   slowDown: 4,
 
   // Units per second the world scrolls toward the camera.
