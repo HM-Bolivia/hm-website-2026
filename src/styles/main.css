@@ -20,9 +20,8 @@
   /* Derived colors follow the base ones, so changing a base color updates everything. */
   --panel: color-mix(in srgb, var(--panel-base) 78%, transparent);
   --border: color-mix(in srgb, var(--blue) 40%, transparent);
-  --font-display: 'Orbitron', system-ui, sans-serif; /* logo, buttons, small labels */
   --font-title: 'VCR OSD Mono', ui-monospace, monospace; /* banner and section titles */
-  --font-body: 'Space Mono', ui-monospace, monospace;
+  --font-body: 'Share Tech Mono', ui-monospace, monospace; /* everything that isn't a title */
   --max-width: 960px;
   --header-height: 4rem;
 
@@ -47,6 +46,7 @@ body {
   min-height: 100vh;
   color: var(--text);
   font-family: var(--font-body);
+  font-size: 1.125rem; /* Share Tech Mono runs small; 18px instead of the default 16px */
   line-height: 1.6;
   /* Fallback when WebGL is unavailable. */
   background: linear-gradient(var(--bg-deep) 0%, #0b0d2a 60%, #090b22 100%) fixed;
@@ -112,8 +112,8 @@ a {
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-weight: 800;
+  font-family: var(--font-title);
+  font-weight: normal;
   font-size: 1.25rem;
   color: var(--text);
   text-decoration: none;
@@ -227,7 +227,6 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-family: var(--font-display);
   font-size: 0.85rem;
   /* Primary (CTA) is solid so it stands out from the outlined secondary button. */
   background: var(--coral);
@@ -298,7 +297,6 @@ h3 {
 }
 
 .highlight {
-  font-family: var(--font-display);
   font-size: clamp(1.1rem, 3.5vw, 1.5rem);
   color: var(--cyan);
   text-shadow: 0 0 10px color-mix(in srgb, var(--cyan) 50%, transparent);
@@ -412,7 +410,6 @@ address {
   right: 0.25rem;
   top: 50%;
   transform: translateY(-50%);
-  font-family: var(--font-display);
   font-size: 1.25rem;
   color: var(--magenta);
 }
