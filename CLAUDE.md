@@ -20,6 +20,7 @@ There are no tests or linters. Verify changes with `npm run build` and by lookin
 index.html                    all page content (Spanish) + inline intro script in <head>
 src/main.js                   entry: starts the background, the intro, and (with ?palette) the palette editor
 src/intro.js                  content slides up after Illimani has been shown alone
+src/active-section.js         marks the section in the middle of the viewport .is-active (title cursor)
 src/styles/main.css           page styles; palette as CSS custom properties in :root
 src/background/
   config.js                   scene palette + every tunable number (speed, bloom, sizes, positions)

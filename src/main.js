@@ -1,6 +1,7 @@
 import './styles/main.css';
 import { NeonBackground } from './background/NeonBackground.js';
 import { initIntro } from './intro.js';
+import { initActiveSection } from './active-section.js';
 
 const canvas = document.querySelector('#bg');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -19,6 +20,9 @@ try {
 
 // Show Illimani on its own first, then slide the content in (no background → no wait).
 initIntro(background?.ready);
+
+// Blinking cursor on the title of the section being viewed.
+initActiveSection();
 
 // Palette editor for choosing colors: only loaded with ?palette (or a shared ?p=… link).
 const params = new URLSearchParams(location.search);
