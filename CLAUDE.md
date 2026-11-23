@@ -9,6 +9,7 @@ npm run dev               # dev server (http://localhost:5173), hot reload
 npm run build             # production build → dist/
 npm run preview           # serve dist/
 npm run assets:illimani   # regenerate src/assets/illimani.png (needs ImageMagick 7)
+npm run speakers -- <pretalx-speakers.json>   # regenerate the speakers section (needs ImageMagick 7)
 cd infra && terraform validate   # after `terraform init -backend=false`
 ```
 
@@ -31,8 +32,10 @@ src/background/
 src/palette-playground/       floating color editor, lazy-loaded only with ?palette
 src/assets/illimani.png       generated; do not edit by hand
 src/assets/logos/             sponsor/community logos, resized (≤400 px wide)
+src/assets/speakers/          speaker avatars from pretalx (generated, 240 px; named by pretalx ID)
 assets-src/illimani.jpeg      original neon Illimani artwork (on black)
 scripts/prepare-illimani-image.sh   jpeg → transparent png
+scripts/build-speakers.mjs    pretalx speakers JSON → #ponentes cards in index.html + avatars (npm run speakers -- <file>)
 scripts/deploy.sh             S3 upload + CloudFront invalidation (used by CI, runnable locally)
 infra/                        Terraform: S3, CloudFront, optional ACM cert, GitHub OIDC deploy role
 .github/workflows/deploy.yml  build + deploy on push to main
@@ -74,7 +77,7 @@ docs/color-palette.md         palette for designers/marketing
 - The event name is written **`0x7ea`** in lowercase (0x7EA = 2026), including the title; `.hex` disables `text-transform` for it.
 - Pending event data is marked with `[PLACEHOLDERS EN CORCHETES]`, and placeholder URLs have `TODO` comments. Don't invent real dates, venues or links.
 - `public/` holds `favicon.ico` (from the 0x7e3 site) and `og-image.png` (1200×630 link-preview card: a headless-Chrome shot of the hero with header, paragraphs and buttons hidden, `--force-prefers-reduced-motion` to skip the intro). Regenerate the card when the title or dates change. The `og:` tags in `index.html` need absolute URLs (domain: `0x7ea.hackmeeting.org.bo`).
-- Sections and their anchors: banner `#inicio`, `#acerca` (history; links to memorias.hackmeeting.org.bo), `#cfp` (titled "Call for papers"; there is a single talk format, no workshops or lightning talks), `#fecha`, `#lugar`, `#faq`, `#comunidades` (sponsor and community logos from `src/assets/logos/`, on light tiles because several logos are dark).
+- Sections and their anchors: banner `#inicio`, `#acerca` (history; links to memorias.hackmeeting.org.bo), `#ponentes` (speaker cards; the markup between the `speakers:start/end` comments is generated, edit the script instead), `#cfp` (titled "Call for papers", now closed; there is a single talk format, no workshops or lightning talks), `#fecha`, `#lugar`, `#faq`, `#comunidades` (sponsor and community logos from `src/assets/logos/`, on light tiles because several logos are dark).
 
 ## Deployment and infra
 - **CI deploys from `master` only.** The workflow trigger and the IAM role trust (`github_branch` in `terraform.tfvars`; the variable defaults to `main`) must change together.
