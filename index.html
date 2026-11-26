@@ -26,6 +26,10 @@
     <meta property="og:image:alt" content="Hackmeeting 0x7ea: el Illimani sobre una grilla neón" />
     <meta name="twitter:card" content="summary_large_image" />
 
+    <!-- pretalx schedule widget: defines the <pretalx-schedule> custom element used in #agenda. async so it
+         never delays the page; the element upgrades whenever the script arrives. -->
+    <script async src="https://charlas.laotra.red/hackmeeting-2026-la-paz/widgets/schedule.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -67,6 +71,7 @@
         <nav aria-label="Secciones">
           <ul>
             <li><a href="#acerca">Acerca</a></li>
+            <li><a href="#agenda">Agenda</a></li>
             <li><a href="#ponentes">Ponentes</a></li>
             <li><a href="#fecha">Fecha</a></li>
             <li><a href="#lugar">Lugar</a></li>
@@ -114,6 +119,35 @@
           <p class="highlight">0x7ea es la edición #17</p>
           <a class="btn btn-secondary" href="https://memorias.hackmeeting.org.bo/" target="_blank" rel="noopener"
             >Ediciones anteriores</a
+          >
+        </section>
+
+        <section id="agenda" class="panel">
+          <h2>Agenda</h2>
+          <p>Toca una charla para ver su descripción y quién la da.</p>
+          <!-- Widget from pretalx (charlas.laotra.red). It draws in a shadow DOM with its own light theme, so it
+               sits on a light screen (.schedule) and only its accent color and sticky offset are set from here. -->
+          <div class="schedule">
+            <pretalx-schedule
+              event-url="https://charlas.laotra.red/hackmeeting-2026-la-paz/"
+              locale="es"
+              format="grid"
+            ></pretalx-schedule>
+            <noscript>
+              <p>
+                Para ver la agenda sin JavaScript,
+                <a href="https://charlas.laotra.red/hackmeeting-2026-la-paz/schedule/" target="_blank" rel="noopener"
+                  >ábrela en pretalx</a
+                >.
+              </p>
+            </noscript>
+          </div>
+          <a
+            class="btn btn-secondary"
+            href="https://charlas.laotra.red/hackmeeting-2026-la-paz/schedule/"
+            target="_blank"
+            rel="noopener"
+            >Ver agenda en pretalx</a
           >
         </section>
 
@@ -461,7 +495,7 @@
               <p>Charlas y cierre.</p>
             </li>
           </ul>
-          <p class="note">El programa con los horarios de cada charla se publicará pronto.</p>
+          <p class="note">Los horarios de cada charla están en la <a href="#agenda">agenda</a>.</p>
         </section>
 
         <section id="lugar" class="panel">
