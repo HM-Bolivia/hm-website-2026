@@ -23,10 +23,10 @@ try {
 // Show Illimani on its own first, then slide the content in (no background → no wait).
 initIntro(background?.ready);
 
-// Real header height for anchor offsets and the agenda's sticky day tabs (the header grows on phones).
+// Real header height for anchor offsets (the header grows on phones).
 initHeaderHeight();
 
-// Day tabs of the pretalx agenda on phones: land on the day's first talk, not behind the sticky bars.
+// pretalx agenda: day tabs scroll with the page, and picking a day lands below the header on phones.
 initAgenda();
 
 // Blinking cursor on the title of the section being viewed.

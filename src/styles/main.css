@@ -447,8 +447,8 @@ address {
 
 /* Agenda: the pretalx widget has a fixed light theme inside its shadow DOM, so it gets a light screen
    (following --text, like the logo tiles) with a neon frame. Only its CSS variables cross the shadow
-   boundary: the accent (darkened so white text on talk boxes stays readable) and the sticky offset,
-   so its day headers stop below our sticky header. */
+   boundary; the accent is darkened so white text on talk boxes stays readable. Its sticky day tabs and
+   track names are turned off from src/agenda.js. */
 /* Wider than the other panels: Saturday has three parallel tracks, which don't fit in --max-width. */
 #agenda.panel {
   max-width: min(1240px, calc(100% - 2rem));
@@ -469,7 +469,6 @@ address {
 .schedule pretalx-schedule {
   display: block;
   --pretalx-clr-primary: color-mix(in srgb, var(--coral), black 25%);
-  --pretalx-sticky-top-offset: var(--header-height);
 }
 
 .schedule noscript p {

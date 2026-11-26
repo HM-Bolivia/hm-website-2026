@@ -23,7 +23,7 @@ src/main.js                   entry: starts the background, the intro, and (with
 src/intro.js                  content slides up after Illimani has been shown alone
 src/active-section.js         marks the section in the middle of the viewport .is-active (title cursor)
 src/header-height.js          keeps --header-height equal to the sticky header's real height (it grows on phones)
-src/agenda.js                 fixes where the pretalx agenda's day tabs scroll to in its phone (list) layout
+src/agenda.js                 pretalx agenda tweaks from JS (shadow DOM): day tabs and track names not sticky; day jumps land below the header
 src/styles/main.css           page styles; palette as CSS custom properties in :root
 src/background/
   config.js                   scene palette + every tunable number (speed, bloom, sizes, positions)
@@ -104,7 +104,7 @@ google-chrome --headless=new --enable-unsafe-swiftshader --use-angle=swiftshader
 - Software rendering is very slow (seconds per frame), so **`--virtual-time-budget` doesn't reflect CSS animation timing**. To check the intro or interactions, drive Chrome over the DevTools protocol (`--remote-debugging-port`, Node's built-in `WebSocket`) and read state with `Runtime.evaluate`.
 - Screenshots of a URL with a hash (`/#faq`) render blank. Scroll with `scrollIntoView` over the DevTools protocol instead.
 - To see only the background, hide `main`/`.page` in a copy of `dist/index.html`.
-- **Cleanup:** kill Chrome and the preview server by PID. Don't use `pkill -f <pattern>` when the pattern appears in your own command line: it kills your own shell. Make sure no headless Chrome is left running (the user has their own Chrome open, so filter by your `--user-data-dir`).
+- **Cleanup:** kill Chrome and the preview server by PID. The PID of a backgrounded `npx vite preview` is npx's; killing it leaves the `node …/vite preview` child running, so check for that one too. Don't use `pkill -f <pattern>` when the pattern appears in your own command line: it kills your own shell. Make sure no headless Chrome is left running (the user has their own Chrome open, so filter by your `--user-data-dir`).
 - ImageMagick gotcha in the image script: a `-compose` setting carries over to later operators like `-border`. Reset it with `-compose Over` and write `PNG32:` to keep the alpha channel.
 
 ## Working preferences
