@@ -22,6 +22,8 @@ index.html                    all page content (Spanish) + inline intro script i
 src/main.js                   entry: starts the background, the intro, and (with ?palette) the palette editor
 src/intro.js                  content slides up after Illimani has been shown alone
 src/active-section.js         marks the section in the middle of the viewport .is-active (title cursor)
+src/header-height.js          keeps --header-height equal to the sticky header's real height (it grows on phones)
+src/agenda.js                 fixes where the pretalx agenda's day tabs scroll to in its phone (list) layout
 src/styles/main.css           page styles; palette as CSS custom properties in :root
 src/background/
   config.js                   scene palette + every tunable number (speed, bloom, sizes, positions)
@@ -77,7 +79,7 @@ docs/color-palette.md         palette for designers/marketing
 - The event name is written **`0x7ea`** in lowercase (0x7EA = 2026), including the title; `.hex` disables `text-transform` for it.
 - Pending event data is marked with `[PLACEHOLDERS EN CORCHETES]`, and placeholder URLs have `TODO` comments. Don't invent real dates, venues or links.
 - `public/` holds `favicon.ico` (from the 0x7e3 site) and `og-image.png` (1200×630 link-preview card: a headless-Chrome shot of the hero with header, paragraphs and buttons hidden, `--force-prefers-reduced-motion` to skip the intro). Regenerate the card when the title or dates change. The `og:` tags in `index.html` need absolute URLs (domain: `0x7ea.hackmeeting.org.bo`).
-- Sections and their anchors: banner `#inicio`, `#acerca` (history; links to memorias.hackmeeting.org.bo), `#agenda` (pretalx `<pretalx-schedule>` widget, script loaded async in `<head>`; it has its own light theme in a shadow DOM, so only `--pretalx-*` variables can style it; the panel is wider because Saturday has three tracks), `#ponentes` (speaker cards; the markup between the `speakers:start/end` comments is generated, edit the script instead), `#cfp` (titled "Call for papers", now closed; there is a single talk format, no workshops or lightning talks), `#fecha`, `#lugar`, `#faq`, `#comunidades` (sponsor and community logos from `src/assets/logos/`, on light tiles because several logos are dark).
+- Sections and their anchors: banner `#inicio`, `#acerca` (history; links to memorias.hackmeeting.org.bo), `#agenda` (pretalx `<pretalx-schedule>` widget, script loaded async in `<head>`; it has its own light theme in a shadow DOM, so only `--pretalx-*` variables can style it; the panel is wider because Saturday has three tracks; **no `overflow` on its ancestors**: the widget scrolls the nearest overflow auto/scroll ancestor when a day is picked), `#ponentes` (speaker cards; the markup between the `speakers:start/end` comments is generated, edit the script instead), `#cfp` (titled "Call for papers", now closed; there is a single talk format, no workshops or lightning talks), `#fecha`, `#lugar`, `#faq`, `#comunidades` (sponsor and community logos from `src/assets/logos/`, on light tiles because several logos are dark).
 
 ## Deployment and infra
 - **CI deploys from `master` only.** The workflow trigger and the IAM role trust (`github_branch` in `terraform.tfvars`; the variable defaults to `main`) must change together.

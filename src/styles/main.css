@@ -23,7 +23,7 @@
   --font-title: 'VCR OSD Mono', ui-monospace, monospace; /* banner and section titles */
   --font-body: 'Share Tech Mono', ui-monospace, monospace; /* everything that isn't a title */
   --max-width: 960px;
-  --header-height: 4rem;
+  --header-height: 4rem; /* replaced at runtime by the header's real height (src/header-height.js) */
 
   /* Intro: how long Illimani is shown alone once loaded, and how long the content takes to slide up. */
   --intro-delay: 0.3s;
@@ -106,7 +106,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: var(--header-height);
+  min-height: 4rem; /* not var(--header-height): src/header-height.js sets that from this element's height */
   padding: 0.75rem clamp(1rem, 4vw, 2.5rem);
   background: linear-gradient(color-mix(in srgb, var(--bg-deep) 90%, transparent), color-mix(in srgb, var(--bg-deep) 0%, transparent));
 }
@@ -462,7 +462,8 @@ address {
   color: var(--bg-deep);
   border: 2px solid var(--blue);
   box-shadow: 0 0 18px color-mix(in srgb, var(--blue) 40%, transparent);
-  overflow-x: auto;
+  /* No overflow here: the widget scrolls the nearest ancestor with overflow auto/scroll when you pick a
+     day, so any overflow on this box would make the day tabs scroll it instead of the page. */
 }
 
 .schedule pretalx-schedule {

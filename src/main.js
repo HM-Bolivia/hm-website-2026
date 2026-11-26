@@ -2,6 +2,8 @@ import './styles/main.css';
 import { NeonBackground } from './background/NeonBackground.js';
 import { initIntro } from './intro.js';
 import { initActiveSection } from './active-section.js';
+import { initHeaderHeight } from './header-height.js';
+import { initAgenda } from './agenda.js';
 
 const canvas = document.querySelector('#bg');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -20,6 +22,12 @@ try {
 
 // Show Illimani on its own first, then slide the content in (no background → no wait).
 initIntro(background?.ready);
+
+// Real header height for anchor offsets and the agenda's sticky day tabs (the header grows on phones).
+initHeaderHeight();
+
+// Day tabs of the pretalx agenda on phones: land on the day's first talk, not behind the sticky bars.
+initAgenda();
 
 // Blinking cursor on the title of the section being viewed.
 initActiveSection();
